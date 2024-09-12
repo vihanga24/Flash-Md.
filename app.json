@@ -4,7 +4,7 @@
   "keywords": ["bot", "node", "baileys", "whatsapp"],
   "logo": "https://telegra.ph/file/dfccbf12397757c321ac4.jpg",
   "repository": "https://github.com/franceking1/Flash-Md",
-  "succes_url": "/",
+  "success_url": "/",
   "stack": "heroku-24",
 
   "env": {
