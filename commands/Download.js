@@ -1260,7 +1260,7 @@ king({ nomCom: "blackpink", aliases: ["bpink"], categorie: "Download" }, async (
 king({
   nomCom: "twitter",
     aliases: ["xdl"],  
-  categorie: "SocialMedia",
+  categorie: "Download",
   reaction: "🐦"
 },
 async (origineMessage, zk, commandeOptions) => {
