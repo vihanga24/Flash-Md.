@@ -20,4 +20,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["node", "flash.js"]
+CMD ["node", "france.js"]
