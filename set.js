@@ -7,14 +7,15 @@ if (fs.existsSync('set.env')) {
     require('dotenv').config({ path: __dirname + '/set.env' });
 }
 
-const databasePath = path.join(__dirname, './database.db');
-const DATABASE_URL = process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL;
+// const databasePath = path.join(__dirname, './database.db');
+// const DATABASE_URL = process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL;
 
 module.exports = {
     session: process.env.SESSION_ID || 'FLASH-MD-WA-BOT;;;=>',
     PREFIXES: (process.env.PREFIX || '').split(',').map(prefix => prefix.trim()).filter(Boolean),
     OWNER_NAME: process.env.OWNER_NAME || "France King",
     OWNER_NUMBER: process.env.OWNER_NUMBER || "254105915061",
+    DATABASE_URL: process.env.DATABASE_URL || "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd",
     AUTO_READ_STATUS: process.env.AUTO_VIEW_STATUS || "on",
     AUTOREAD_MESSAGES: process.env.AUTO_READ_MESSAGES || "on",
     CHATBOT: process.env.CHAT_BOT || "off",
@@ -33,9 +34,9 @@ module.exports = {
     DP: process.env.STARTING_MESSAGE || "on",
     ANTICALL: process.env.ANTICALL || 'on',
     DATABASE_URL,
-    DATABASE: DATABASE_URL === databasePath
-        ? "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd"
-        : "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd",
+    // DATABASE: DATABASE_URL === databasePath
+        // ? "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd"
+        // : "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd",
     /* new Sequelize({
         dialect: 'sqlite',
         storage: DATABASE_URL,
