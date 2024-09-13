@@ -1,7 +1,6 @@
 require("dotenv").config();
 const { Pool } = require("pg");
-let s =require("../set");
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgresql://giftedtech_ke:9BzoUeUQO2owLEsMjz5Vhshva91bxF2X@dpg-crice468ii6s73f1nkt0-a.oregon-postgres.render.com/api_gifted_tech"; 
+const dbUrl = "postgresql://giftedtech_ke:9BzoUeUQO2owLEsMjz5Vhshva91bxF2X@dpg-crice468ii6s73f1nkt0-a.oregon-postgres.render.com/api_gifted_tech";
 
 const proConfig = {
   connectionString:dbUrl ,
