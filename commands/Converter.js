@@ -1,4 +1,4 @@
-const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
+/*const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 const { king } = require("../france/king");
 const traduire = require("../france/traduction");
 const { downloadMediaMessage, downloadContentFromMessage } = require('@whiskeysockets/baileys');
@@ -6,33 +6,76 @@ const fs = require("fs-extra");
 //const fs = require("fs");
 const axios = require('axios');
 const { exec } = require("child_process");
-const FormData = require('form-data');
+const FormData = require('node-catbox');
 const ffmpeg = require("fluent-ffmpeg");
 
-async function uploadToTelegraph(Path) {
+async function uploadToCatbox(Path) {
     if (!fs.existsSync(Path)) {
         throw new Error("Fichier non existant");
     }
 
     try {
         const form = new FormData();
-        form.append("file", fs.createReadStream(Path));
+        form.append("fileToUpload", fs.createReadStream(Path));
 
-        const { data } = await axios.post("https://telegra.ph/upload", form, {
+        const { data } = await axios.post("https://catbox.moe/user/api.php", form, {
             headers: {
-                ...form.getHeaders(),
+                ...form.getHeaders()
             },
+            params: {
+                reqtype: 'fileupload'
+            }
         });
 
-        if (data && data[0] && data[0].src) {
-            return "https://telegra.ph" + data[0].src;
+        if (data) {
+            return data; // returns the uploaded file URL
         } else {
-            throw new Error("Erreur lors de la récupération du lien de la vidéo");
+            throw new Error("Erreur lors de la récupération du lien du fichier");
         }
     } catch (err) {
         throw new Error(String(err));
     }
 }
+*/
+
+
+    
+const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
+const { king } = require("../france/king");
+const traduire = require("../france/traduction");
+const { downloadMediaMessage, downloadContentFromMessage } = require('@whiskeysockets/baileys');
+const fs = require("fs-extra");
+const axios = require('axios');
+const { exec } = require("child_process");
+const ffmpeg = require("fluent-ffmpeg");
+const { Catbox } = require('node-catbox'); // Import Catbox
+
+const catbox = new Catbox();
+
+async function uploadToCatbox(Path) {
+    if (!fs.existsSync(Path)) {
+        throw new Error("Fichier non existant");
+    }
+
+    try {
+        // Use Catbox to upload the file
+        const response = await catbox.uploadFile({
+            path: Path // Provide the path to the file
+        });
+
+        if (response) {
+            return response; // returns the uploaded file URL
+        } else {
+            throw new Error("Erreur lors de la récupération du lien du fichier");
+        }
+    } catch (err) {
+        throw new Error(String(err));
+    }
+}
+
+
+
+
 
 king({ nomCom: "sticker", aliases: ["s"], categorie: "Converter", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
     let { ms, mtype, arg, repondre, nomAuteurMessage } = commandeOptions;
@@ -588,10 +631,10 @@ king({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async
   }
 
   try {
-      const telegraphUrl = await uploadToTelegraph(mediaPath);
+      const catboxUrl = await uploadToCatbox(mediaPath);
       fs.unlinkSync(mediaPath);  // Supprime le fichier après utilisation
 
-      repondre(telegraphUrl);
+      repondre(catboxUrl);
   } catch (error) {
       console.error('Error while creating your url :', error);
       repondre('Opps error');
