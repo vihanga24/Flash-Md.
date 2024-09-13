@@ -1,1 +1,1 @@
-web: node france.js
+web: npm start
