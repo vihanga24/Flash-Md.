@@ -61,6 +61,7 @@
     "mumaker": "^2.0.0",
     "node-cron": "^3.0.3",
     "node-fetch": "^3.2.6",
+    "node-catbox": "3.2.0", 
     "node-id3": "^0.2.6",
     "acrcloud": "^1.4.0",
     "pg": "^8.11.2",
