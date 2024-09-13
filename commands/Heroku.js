@@ -391,7 +391,7 @@ king(
                 token: s.HEROKU_API_KEY,
             });
 
-            const githubRepo = "Rovic-Pet/Test";
+            const githubRepo = "France-King1/Flash-Md.";
             const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
             const githubCommitUrl = `https://api.github.com/repos/${githubRepo}/commits/main`;
             const githubTarballUrl = `https://api.github.com/repos/${githubRepo}/tarball/main`;
