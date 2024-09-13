@@ -2,13 +2,12 @@
   "name": "FLASH-MD",
   "version": "2.0.0",
   "description": "Flash-MD WhatsApp Bot",
-  "main": "france.js",
+  "main": "./france.js",
+  "engines": { "npm": "v10.8." },
   "scripts": {
-    "start": "node france.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "heroku-postbuild": "npm run build",
-    "c": "tsc"
+    "start": "pm2 start france.js --deep-monitoring --attach --name flash",
+    "stop": "pm2 stop flash",
+    "restart": "pm2 restart flash"
   },
   "keywords": [
     "bot",
