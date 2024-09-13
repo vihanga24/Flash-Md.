@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 RUN npm install pm2 -g
 
-RUN git clone https://github.com/France-King1/Flash.git /root/goatedfrance
+RUN git clone https://github.com/France-King1/Flash-Md..git /root/goatedfrance
 WORKDIR /root/goatedfrance/
 
 COPY package.json .
