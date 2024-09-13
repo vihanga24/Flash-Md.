@@ -20,4 +20,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["pm2-runtime", "flash.js"]
+CMD ["node", "flash.js"]
