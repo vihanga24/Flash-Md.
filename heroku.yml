@@ -3,4 +3,4 @@ build:
     web: Dockerfile
 
 run:
-  web: pm2-runtime flash.js
+  web: node france.js
