@@ -1,6 +1,6 @@
 const { king } = require("../france/king");
 const yts = require('yt-search');
-const BaseUrl = 'https://gifted-apis-third-30b2fdbb9819.herokuapp.com';
+const BaseUrl = 'https://api.giftedtechnexus.co.ke';
 const giftedapikey = 'gifteddevskk';
 /*const { ytdown } = require("nayan-media-downloader");
 
