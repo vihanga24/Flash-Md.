@@ -2,10 +2,10 @@
   "name": "FLASH-MD",
   "version": "2.0.0",
   "description": "Flash-MD WhatsApp Bot",
-  "main": "./flash.js",
+  "main": "./france.js",
   "engines": { "npm": "v10.8.3" },
   "scripts": {
-    "start": "pm2 start flash.js --deep-monitoring --attach --name flash",
+    "start": "pm2 start france.js --deep-monitoring --attach --name flash",
     "stop": "pm2 stop flash",
     "restart": "pm2 restart flash"
   },
