@@ -10,7 +10,7 @@ if (fs.existsSync('set.env')) {
 const databasePath = path.join(__dirname, './database.db');
 const DATABASE_URL = process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL;
 module.exports = {
-    session: process.env.SESSION_ID || 'FLASH-MD-WA-BOT;;;=>',
+    session: process.env.SESSION_ID || '',
     PREFIXES: (process.env.PREFIX || '').split(',').map(prefix => prefix.trim()).filter(Boolean),
     OWNER_NAME: process.env.OWNER_NAME || "France King",
     OWNER_NUMBER: process.env.OWNER_NUMBER || "254105915061",
@@ -26,7 +26,7 @@ module.exports = {
     HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
     HEROKU_API_KEY: process.env.HEROKU_API_KEY,
     WARN_COUNT: process.env.WARN_COUNT || '3',
-    PRESENCE: process.env.PRESENCE || '',
+    PRESENCE: process.env.PRESENCE || 'online',
     ADM: process.env.ANTI_DELETE || 'on',
     TZ: process.env.TIME_ZONE || 'Africa/Nairobi',
     DP: process.env.STARTING_MESSAGE || "on",
