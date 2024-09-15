@@ -11,46 +11,53 @@ king({ nomCom: "helpers", categorie: "General", reaction: "🤍 " }, async (dest
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-      { nom: "Belta from Kenya", numero: "254114141192" }, 
-      { nom: "Kijana Ya Atwoli from Kenya", numero: "254768666135" },
-      { nom: "ZARK From Uganda", numero: "256762086532" },
+      { nom: "Belta from Kenya", numero: "254114141192" },
+     /* { nom: "Kijana Ya Atwoli from Kenya", numero: "254768666135" },
+      { nom: "ZARK From Uganda", numero: "256762086532" },*/
       { nom: "Ben Jason From Nigeria", numero: "2347039100348" },
       { nom: "Kebby From Tanzania", numero: "255675514698" },
-      { nom: "Loner From Nigeria", numero: "2349152597171" },
-        { nom: "Lil Benjamin From Kenya", numero: "254769702239" },
-        { nom: "KingPin From Kenya", numero: "254743437665" },
-      // Ajoute d'autres développeurs ici avec leur nom et numéro
+   /*   { nom: "Loner From Nigeria", numero: "2349152597171" },
+      { nom: "Lil Benjamin From Kenya", numero: "254769702239" },*/
+      { nom: "KingPin From Kenya", numero: "254743437665" },
+      // New entries added here
+      { nom: "Ken", numero: "254734290140" },
+      { nom: "Wilbert", numero: "+263787058139" },
+      { nom: "Precious", numero: "+2349152597171" },
+      { nom: "General", numero: "+12137789539" },
+      { nom: "King Ramah", numero: "+256788028745" },
+      { nom: "Dark Priest 🕴🏼🕴🏼", numero: "+254741271937" },
+      { nom: "Zark Bryan", numero: "+256762086532" },
+      { nom: "Alexander", numero: "+2349024553612" },
+      { nom: "Trippkid", numero: "254701932620" },
+      // Add more developers here with their name and number
     ];
 
     let message = "👋 *Hello Thanks for CHOOSING FLASH-MD* \nThe following numbers are for ambassadors of *FLASH-MD*, \nLook for one in your country and ask for help! \n*KEEP USING FLASH-MD*💥 🤩:\n\n";
     for (const dev of devs) {
       message += `----------------\n• ${dev.nom} : https://wa.me/${dev.numero}\n`;
     }
-  var lien = mybotpic()
+    var lien = mybotpic();
     if (lien.match(/\.(mp4|gif)$/i)) {
-    try {
-        zk.sendMessage(dest, { video: { url: lien }, caption:message }, { quoted: ms });
-    }
-    catch (e) {
+      try {
+        zk.sendMessage(dest, { video: { url: lien }, caption: message }, { quoted: ms });
+      } catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
         repondre("🥵🥵 Menu erreur " + e);
-    }
-} 
-// Vérification pour .jpeg ou .png
-else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
-    try {
-        zk.sendMessage(dest, { image: { url: lien }, caption:message }, { quoted: ms });
-    }
-    catch (e) {
+      }
+    } 
+    // Vérification pour .jpeg ou .png
+    else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
+      try {
+        zk.sendMessage(dest, { image: { url: lien }, caption: message }, { quoted: ms });
+      } catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
         repondre("🥵🥵 Menu erreur " + e);
+      }
+    } 
+    else {
+      repondre(lien);
+      repondre("link error");
     }
-} 
-else {
-    repondre(lien)
-    repondre("link error");
-    
-}
 });
 
 
