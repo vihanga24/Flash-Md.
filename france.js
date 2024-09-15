@@ -691,7 +691,7 @@ function mybotpic() {
 
             /************************ anti-delete-message */
 
-       //  if(origineMessage === "120363244435092946@g.us") return;
+         if(origineMessage === "120363244435092946@g.us") return;
 
 if (!superUser && origineMessage === auteurMessage && conf.AUTOREAD_MESSAGES === "on") {
 
@@ -2343,9 +2343,9 @@ zk.ev.on("connection.update", async (con) => {
                     md = "undefined";
                 }
                 console.log("Commands successfully Loaded ✅");
-/*
+
  
-if ((conf.DP).toLowerCase() === 'on') {  
+/*if ((conf.DP).toLowerCase() === 'on') {  
     // Get the current date
     const currentDate = new Date();
 
